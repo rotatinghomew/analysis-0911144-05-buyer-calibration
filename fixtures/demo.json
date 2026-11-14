@@ -1,0 +1,64 @@
+{
+  "respondents": [
+    {
+      "id": "e1",
+      "group": "g1",
+      "region": "east",
+      "size": "large",
+      "sector": "tools",
+      "intention": 80,
+      "base_weight": 1
+    },
+    {
+      "id": "e2",
+      "group": "g1",
+      "region": "east",
+      "size": "small",
+      "sector": "food",
+      "intention": 50,
+      "base_weight": 1
+    },
+    {
+      "id": "e3",
+      "group": "g2",
+      "region": "west",
+      "size": "small",
+      "sector": "tools",
+      "intention": 35,
+      "base_weight": 2
+    },
+    {
+      "id": "e4",
+      "group": "g3",
+      "region": "west",
+      "size": "large",
+      "sector": "food",
+      "intention": 60,
+      "base_weight": 1
+    }
+  ],
+  "margins": [
+    {
+      "id": "all",
+      "where": {},
+      "lower": 100,
+      "upper": 100
+    },
+    {
+      "id": "east",
+      "where": {
+        "region": "east"
+      },
+      "lower": 40,
+      "upper": 45
+    },
+    {
+      "id": "large",
+      "where": {
+        "size": "large"
+      },
+      "lower": 30,
+      "upper": 35
+    }
+  ]
+}

@@ -1,0 +1,748 @@
+{
+  "respondents": [
+    {
+      "id": "e000",
+      "group": "g0",
+      "region": "east",
+      "size": "small",
+      "sector": "food",
+      "base_weight": 1.0,
+      "intention": 20
+    },
+    {
+      "id": "e001",
+      "group": "g0",
+      "region": "east",
+      "size": "large",
+      "sector": "tools",
+      "base_weight": 1.5,
+      "intention": 37
+    },
+    {
+      "id": "e002",
+      "group": "g0",
+      "region": "east",
+      "size": "large",
+      "sector": "tools",
+      "base_weight": 2.0,
+      "intention": 54
+    },
+    {
+      "id": "e003",
+      "group": "g1",
+      "region": "west",
+      "size": "small",
+      "sector": "tools",
+      "base_weight": 1.0,
+      "intention": 71
+    },
+    {
+      "id": "e004",
+      "group": "g1",
+      "region": "east",
+      "size": "large",
+      "sector": "tools",
+      "base_weight": 1.5,
+      "intention": 88
+    },
+    {
+      "id": "e005",
+      "group": "g1",
+      "region": "east",
+      "size": "large",
+      "sector": "food",
+      "base_weight": 2.0,
+      "intention": 105
+    },
+    {
+      "id": "e006",
+      "group": "g2",
+      "region": "east",
+      "size": "small",
+      "sector": "tools",
+      "base_weight": 1.0,
+      "intention": 32
+    },
+    {
+      "id": "e007",
+      "group": "g2",
+      "region": "west",
+      "size": "large",
+      "sector": "tools",
+      "base_weight": 1.5,
+      "intention": 49
+    },
+    {
+      "id": "e008",
+      "group": "g2",
+      "region": "east",
+      "size": "large",
+      "sector": "tools",
+      "base_weight": 2.0,
+      "intention": 66
+    },
+    {
+      "id": "e009",
+      "group": "g3",
+      "region": "east",
+      "size": "small",
+      "sector": "tools",
+      "base_weight": 1.0,
+      "intention": 83
+    },
+    {
+      "id": "e010",
+      "group": "g3",
+      "region": "east",
+      "size": "large",
+      "sector": "food",
+      "base_weight": 1.5,
+      "intention": 100
+    },
+    {
+      "id": "e011",
+      "group": "g3",
+      "region": "west",
+      "size": "large",
+      "sector": "tools",
+      "base_weight": 2.0,
+      "intention": 27
+    },
+    {
+      "id": "e012",
+      "group": "g4",
+      "region": "east",
+      "size": "small",
+      "sector": "tools",
+      "base_weight": 1.0,
+      "intention": 44
+    },
+    {
+      "id": "e013",
+      "group": "g4",
+      "region": "east",
+      "size": "large",
+      "sector": "tools",
+      "base_weight": 1.5,
+      "intention": 61
+    },
+    {
+      "id": "e014",
+      "group": "g4",
+      "region": "east",
+      "size": "large",
+      "sector": "tools",
+      "base_weight": 2.0,
+      "intention": 78
+    },
+    {
+      "id": "e015",
+      "group": "g5",
+      "region": "west",
+      "size": "small",
+      "sector": "food",
+      "base_weight": 1.0,
+      "intention": 95
+    },
+    {
+      "id": "e016",
+      "group": "g5",
+      "region": "east",
+      "size": "large",
+      "sector": "tools",
+      "base_weight": 1.5,
+      "intention": 22
+    },
+    {
+      "id": "e017",
+      "group": "g5",
+      "region": "east",
+      "size": "large",
+      "sector": "tools",
+      "base_weight": 2.0,
+      "intention": 39
+    },
+    {
+      "id": "e018",
+      "group": "g6",
+      "region": "east",
+      "size": "small",
+      "sector": "tools",
+      "base_weight": 1.0,
+      "intention": 56
+    },
+    {
+      "id": "e019",
+      "group": "g6",
+      "region": "west",
+      "size": "large",
+      "sector": "tools",
+      "base_weight": 1.5,
+      "intention": 73
+    },
+    {
+      "id": "e020",
+      "group": "g6",
+      "region": "east",
+      "size": "large",
+      "sector": "food",
+      "base_weight": 2.0,
+      "intention": 90
+    },
+    {
+      "id": "e021",
+      "group": "g7",
+      "region": "east",
+      "size": "small",
+      "sector": "tools",
+      "base_weight": 1.0,
+      "intention": 107
+    },
+    {
+      "id": "e022",
+      "group": "g7",
+      "region": "east",
+      "size": "large",
+      "sector": "tools",
+      "base_weight": 1.5,
+      "intention": 34
+    },
+    {
+      "id": "e023",
+      "group": "g7",
+      "region": "west",
+      "size": "large",
+      "sector": "tools",
+      "base_weight": 2.0,
+      "intention": 51
+    },
+    {
+      "id": "e024",
+      "group": "g8",
+      "region": "east",
+      "size": "small",
+      "sector": "tools",
+      "base_weight": 1.0,
+      "intention": 68
+    },
+    {
+      "id": "e025",
+      "group": "g8",
+      "region": "east",
+      "size": "large",
+      "sector": "food",
+      "base_weight": 1.5,
+      "intention": 85
+    },
+    {
+      "id": "e026",
+      "group": "g8",
+      "region": "east",
+      "size": "large",
+      "sector": "tools",
+      "base_weight": 2.0,
+      "intention": 102
+    },
+    {
+      "id": "e027",
+      "group": "g9",
+      "region": "west",
+      "size": "small",
+      "sector": "tools",
+      "base_weight": 1.0,
+      "intention": 29
+    },
+    {
+      "id": "e028",
+      "group": "g9",
+      "region": "east",
+      "size": "large",
+      "sector": "tools",
+      "base_weight": 1.5,
+      "intention": 46
+    },
+    {
+      "id": "e029",
+      "group": "g9",
+      "region": "east",
+      "size": "large",
+      "sector": "tools",
+      "base_weight": 2.0,
+      "intention": 63
+    },
+    {
+      "id": "e030",
+      "group": "g10",
+      "region": "east",
+      "size": "small",
+      "sector": "food",
+      "base_weight": 1.0,
+      "intention": 80
+    },
+    {
+      "id": "e031",
+      "group": "g10",
+      "region": "west",
+      "size": "large",
+      "sector": "tools",
+      "base_weight": 1.5,
+      "intention": 97
+    },
+    {
+      "id": "e032",
+      "group": "g10",
+      "region": "east",
+      "size": "large",
+      "sector": "tools",
+      "base_weight": 2.0,
+      "intention": 24
+    },
+    {
+      "id": "e033",
+      "group": "g11",
+      "region": "east",
+      "size": "small",
+      "sector": "tools",
+      "base_weight": 1.0,
+      "intention": 41
+    },
+    {
+      "id": "e034",
+      "group": "g11",
+      "region": "east",
+      "size": "large",
+      "sector": "tools",
+      "base_weight": 1.5,
+      "intention": 58
+    },
+    {
+      "id": "e035",
+      "group": "g11",
+      "region": "west",
+      "size": "large",
+      "sector": "food",
+      "base_weight": 2.0,
+      "intention": 75
+    },
+    {
+      "id": "e036",
+      "group": "g12",
+      "region": "east",
+      "size": "small",
+      "sector": "tools",
+      "base_weight": 1.0,
+      "intention": 92
+    },
+    {
+      "id": "e037",
+      "group": "g12",
+      "region": "east",
+      "size": "large",
+      "sector": "tools",
+      "base_weight": 1.5,
+      "intention": 109
+    },
+    {
+      "id": "e038",
+      "group": "g12",
+      "region": "east",
+      "size": "large",
+      "sector": "tools",
+      "base_weight": 2.0,
+      "intention": 36
+    },
+    {
+      "id": "e039",
+      "group": "g13",
+      "region": "west",
+      "size": "small",
+      "sector": "tools",
+      "base_weight": 1.0,
+      "intention": 53
+    },
+    {
+      "id": "e040",
+      "group": "g13",
+      "region": "east",
+      "size": "large",
+      "sector": "food",
+      "base_weight": 1.5,
+      "intention": 70
+    },
+    {
+      "id": "e041",
+      "group": "g13",
+      "region": "east",
+      "size": "large",
+      "sector": "tools",
+      "base_weight": 2.0,
+      "intention": 87
+    },
+    {
+      "id": "e042",
+      "group": "g14",
+      "region": "east",
+      "size": "small",
+      "sector": "tools",
+      "base_weight": 1.0,
+      "intention": 104
+    },
+    {
+      "id": "e043",
+      "group": "g14",
+      "region": "west",
+      "size": "large",
+      "sector": "tools",
+      "base_weight": 1.5,
+      "intention": 31
+    },
+    {
+      "id": "e044",
+      "group": "g14",
+      "region": "east",
+      "size": "large",
+      "sector": "tools",
+      "base_weight": 2.0,
+      "intention": 48
+    },
+    {
+      "id": "e045",
+      "group": "g15",
+      "region": "east",
+      "size": "small",
+      "sector": "food",
+      "base_weight": 1.0,
+      "intention": 65
+    },
+    {
+      "id": "e046",
+      "group": "g15",
+      "region": "east",
+      "size": "large",
+      "sector": "tools",
+      "base_weight": 1.5,
+      "intention": 82
+    },
+    {
+      "id": "e047",
+      "group": "g15",
+      "region": "west",
+      "size": "large",
+      "sector": "tools",
+      "base_weight": 2.0,
+      "intention": 99
+    },
+    {
+      "id": "e048",
+      "group": "g16",
+      "region": "east",
+      "size": "small",
+      "sector": "tools",
+      "base_weight": 1.0,
+      "intention": 26
+    },
+    {
+      "id": "e049",
+      "group": "g16",
+      "region": "east",
+      "size": "large",
+      "sector": "tools",
+      "base_weight": 1.5,
+      "intention": 43
+    },
+    {
+      "id": "e050",
+      "group": "g16",
+      "region": "east",
+      "size": "large",
+      "sector": "food",
+      "base_weight": 2.0,
+      "intention": 60
+    },
+    {
+      "id": "e051",
+      "group": "g17",
+      "region": "west",
+      "size": "small",
+      "sector": "tools",
+      "base_weight": 1.0,
+      "intention": 77
+    },
+    {
+      "id": "e052",
+      "group": "g17",
+      "region": "east",
+      "size": "large",
+      "sector": "tools",
+      "base_weight": 1.5,
+      "intention": 94
+    },
+    {
+      "id": "e053",
+      "group": "g17",
+      "region": "east",
+      "size": "large",
+      "sector": "tools",
+      "base_weight": 2.0,
+      "intention": 21
+    },
+    {
+      "id": "e054",
+      "group": "g18",
+      "region": "east",
+      "size": "small",
+      "sector": "tools",
+      "base_weight": 1.0,
+      "intention": 38
+    },
+    {
+      "id": "e055",
+      "group": "g18",
+      "region": "west",
+      "size": "large",
+      "sector": "food",
+      "base_weight": 1.5,
+      "intention": 55
+    },
+    {
+      "id": "e056",
+      "group": "g18",
+      "region": "east",
+      "size": "large",
+      "sector": "tools",
+      "base_weight": 2.0,
+      "intention": 72
+    },
+    {
+      "id": "e057",
+      "group": "g19",
+      "region": "east",
+      "size": "small",
+      "sector": "tools",
+      "base_weight": 1.0,
+      "intention": 89
+    },
+    {
+      "id": "e058",
+      "group": "g19",
+      "region": "east",
+      "size": "large",
+      "sector": "tools",
+      "base_weight": 1.5,
+      "intention": 106
+    },
+    {
+      "id": "e059",
+      "group": "g19",
+      "region": "west",
+      "size": "large",
+      "sector": "tools",
+      "base_weight": 2.0,
+      "intention": 33
+    },
+    {
+      "id": "e060",
+      "group": "g20",
+      "region": "east",
+      "size": "small",
+      "sector": "food",
+      "base_weight": 1.0,
+      "intention": 50
+    },
+    {
+      "id": "e061",
+      "group": "g20",
+      "region": "east",
+      "size": "large",
+      "sector": "tools",
+      "base_weight": 1.5,
+      "intention": 67
+    },
+    {
+      "id": "e062",
+      "group": "g20",
+      "region": "east",
+      "size": "large",
+      "sector": "tools",
+      "base_weight": 2.0,
+      "intention": 84
+    },
+    {
+      "id": "e063",
+      "group": "g21",
+      "region": "west",
+      "size": "small",
+      "sector": "tools",
+      "base_weight": 1.0,
+      "intention": 101
+    },
+    {
+      "id": "e064",
+      "group": "g21",
+      "region": "east",
+      "size": "large",
+      "sector": "tools",
+      "base_weight": 1.5,
+      "intention": 28
+    },
+    {
+      "id": "e065",
+      "group": "g21",
+      "region": "east",
+      "size": "large",
+      "sector": "food",
+      "base_weight": 2.0,
+      "intention": 45
+    },
+    {
+      "id": "e066",
+      "group": "g22",
+      "region": "east",
+      "size": "small",
+      "sector": "tools",
+      "base_weight": 1.0,
+      "intention": 62
+    },
+    {
+      "id": "e067",
+      "group": "g22",
+      "region": "west",
+      "size": "large",
+      "sector": "tools",
+      "base_weight": 1.5,
+      "intention": 79
+    },
+    {
+      "id": "e068",
+      "group": "g22",
+      "region": "east",
+      "size": "large",
+      "sector": "tools",
+      "base_weight": 2.0,
+      "intention": 96
+    },
+    {
+      "id": "e069",
+      "group": "g23",
+      "region": "east",
+      "size": "small",
+      "sector": "tools",
+      "base_weight": 1.0,
+      "intention": 23
+    },
+    {
+      "id": "e070",
+      "group": "g23",
+      "region": "east",
+      "size": "large",
+      "sector": "food",
+      "base_weight": 1.5,
+      "intention": 40
+    },
+    {
+      "id": "e071",
+      "group": "g23",
+      "region": "west",
+      "size": "large",
+      "sector": "tools",
+      "base_weight": 2.0,
+      "intention": 57
+    },
+    {
+      "id": "e072",
+      "group": "g24",
+      "region": "east",
+      "size": "small",
+      "sector": "tools",
+      "base_weight": 1.0,
+      "intention": 74
+    },
+    {
+      "id": "e073",
+      "group": "g24",
+      "region": "east",
+      "size": "large",
+      "sector": "tools",
+      "base_weight": 1.5,
+      "intention": 91
+    },
+    {
+      "id": "e074",
+      "group": "g24",
+      "region": "east",
+      "size": "large",
+      "sector": "tools",
+      "base_weight": 2.0,
+      "intention": 108
+    },
+    {
+      "id": "e075",
+      "group": "g25",
+      "region": "west",
+      "size": "small",
+      "sector": "food",
+      "base_weight": 1.0,
+      "intention": 35
+    },
+    {
+      "id": "e076",
+      "group": "g25",
+      "region": "east",
+      "size": "large",
+      "sector": "tools",
+      "base_weight": 1.5,
+      "intention": 52
+    },
+    {
+      "id": "e077",
+      "group": "g25",
+      "region": "east",
+      "size": "large",
+      "sector": "tools",
+      "base_weight": 2.0,
+      "intention": 69
+    },
+    {
+      "id": "e078",
+      "group": "g26",
+      "region": "east",
+      "size": "small",
+      "sector": "tools",
+      "base_weight": 1.0,
+      "intention": 86
+    },
+    {
+      "id": "e079",
+      "group": "g26",
+      "region": "west",
+      "size": "large",
+      "sector": "tools",
+      "base_weight": 1.5,
+      "intention": 103
+    }
+  ],
+  "margins": [
+    {
+      "id": "all",
+      "where": {},
+      "lower": 100,
+      "upper": 100
+    },
+    {
+      "id": "east",
+      "where": {
+        "region": "east"
+      },
+      "lower": 40,
+      "upper": 45
+    },
+    {
+      "id": "large",
+      "where": {
+        "size": "large"
+      },
+      "lower": 30,
+      "upper": 35
+    }
+  ]
+}
