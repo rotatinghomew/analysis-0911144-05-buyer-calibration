@@ -24,6 +24,29 @@ python -m buyer_calibration serve --database /tmp/buyer_calibration.sqlite3 --lo
 
 ## 目录与现有能力
 
-`buyer_calibration/domain.py` 负责资料规则和已有概览；`repository.py` 负责不可变资料版本与导入回执；`service.py` 是服务边界；`client.py` 是独立 HTTP 消费者。fixtures/demo.json 是便于逐项核对的小样本，fixtures/history.json 是同口径的本地合成历史资料。测试覆盖领域规则、版本稳定性及真实 HTTP 往返。
+`buyer_calibration/domain.py` 负责资料规则和已有概览；`repository.py` 负责不可变资料版本、导入回执与已保存分析；`service.py` 是服务边界；`calibration.py` 是边际校准分析；`client.py` 是独立 HTTP 消费者。fixtures/demo.json 是便于逐项核对的小样本，fixtures/history.json 是同口径的本地合成历史资料。测试覆盖领域规则、版本稳定性、校准数学、结论分级、集团重抽样、分析记录持久化及真实 HTTP 往返。
+
+## 校准分析
+
+校准只在样本实际观察到的（地区、规模、行业）组合上分配总体企业数，边际之间允许交叠，区间约束同时生效；不创建无样本组合，也不能靠巨大权重假装观察过。点估计取离既有设计权重最近的可行解，同时给出约束决定的识别区间、总体企业数范围、企业级与集团级有效样本量、最大权重比。
+
+结论分为四级：
+
+* `calibrated`：在声明设置下通过有效信息量与区间检查；
+* `unstable`：可行但估计不稳（有效信息量低、权重膨胀、区间过宽、总体未识别或重抽样常不可行）；
+* `extrapolated`：依赖稀薄组合撑起较多总体，只有接受选择偏差假设才能外推；
+* `conflict`：约束本身冲突，区分为无样本支撑（`support_gap`）与边际互相冲突（`margin_conflict`，附最小冲突集合）；不产生估计。
+
+`tradeoffs` 记录收紧权重上限与逐项放宽边际的代价及最小可行上限，`choices` 保留每次选择依据，`assumption` 明示选择偏差假设。结论始终是校准与假设下的估计，不是对总体的观测。
+
+```sh
+# 对固定版本运行并可选保存为可复核记录
+python -m buyer_calibration calibrate --database /tmp/data.sqlite3 --revision 1 --request-key review-1 --settings settings.json
+
+# 通过 HTTP 运行，不保存
+curl 'http://127.0.0.1:8080/calibration?revision=1&settings=%7B%22weight_cap%22%3A3%7D'
+```
+
+接口细节见 docs/interfaces.md，设置字段与分级口径见 docs/data-contract.md。
 
 现有概览的解释边界跟随输出的 meaning 或 visibility 字段。原始资料和描述性结果不自动构成推断、优化或对外承诺；调用者应保留版本号和摘要。

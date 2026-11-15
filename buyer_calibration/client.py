@@ -1,4 +1,5 @@
 import json
+from urllib.parse import quote
 from urllib.request import Request, urlopen
 
 
@@ -17,3 +18,22 @@ class Client:
 
     def summary(self, revision=None):
         return self.request('/summary' + ('' if revision is None else f'?revision={revision}'))
+
+    def calibration(self, revision=None, settings=None):
+        query = []
+        if revision is not None:
+            query.append(f'revision={revision}')
+        if settings is not None:
+            query.append('settings=' + quote(json.dumps(settings, ensure_ascii=False)))
+        suffix = ('?' + '&'.join(query)) if query else ''
+        return self.request('/calibration' + suffix)
+
+    def save_analysis(self, request_key, revision=None, settings=None):
+        suffix = '' if revision is None else f'?revision={revision}'
+        return self.request('/analyses' + suffix, {'request_key': request_key, 'settings': settings})
+
+    def analyses(self, revision=None):
+        return self.request('/analyses' + ('' if revision is None else f'?revision={revision}'))
+
+    def analysis(self, analysis_id):
+        return self.request(f'/analyses/{analysis_id}')

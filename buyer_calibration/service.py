@@ -2,8 +2,23 @@ import json
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from urllib.parse import parse_qs, urlsplit
 
+from .calibration import analyze_snapshot
 from .domain import records, summarize
 from .repository import Conflict
+
+
+def _settings_from_query(query):
+    if 'settings' not in query:
+        return None
+    if len(query['settings']) != 1:
+        raise ValueError('settings 只能提供一个')
+    try:
+        settings = json.loads(query['settings'][0])
+    except json.JSONDecodeError as error:
+        raise ValueError('settings 必须是 JSON 对象') from error
+    if not isinstance(settings, dict):
+        raise ValueError('settings 必须是 JSON 对象')
+    return settings
 
 
 def make_server(repository, host='127.0.0.1', port=0):
@@ -26,12 +41,26 @@ def make_server(repository, host='127.0.0.1', port=0):
                     return self.send_json(200, {'status': 'ok'})
                 if parsed.path == '/revisions':
                     return self.send_json(200, {'revisions': repository.history()})
-                if parsed.path not in ('/records', '/summary'):
+                if parsed.path == '/analyses':
+                    query = parse_qs(parsed.query)
+                    revision = int(query['revision'][0]) if 'revision' in query else None
+                    return self.send_json(200, {'analyses': repository.analyses(revision)})
+                if parsed.path.startswith('/analyses/'):
+                    try:
+                        analysis_id = int(parsed.path.rsplit('/', 1)[1])
+                    except ValueError as error:
+                        raise ValueError('分析编号必须是整数') from error
+                    return self.send_json(200, repository.analysis(analysis_id))
+                if parsed.path not in ('/records', '/summary', '/calibration'):
                     return self.send_json(404, {'error': '接口不存在'})
                 query = parse_qs(parsed.query)
                 revision = int(query['revision'][0]) if 'revision' in query else None
                 snapshot = repository.get(revision)
-                result = records(snapshot['data']) if parsed.path == '/records' else summarize(snapshot['data'])
+                if parsed.path == '/calibration':
+                    settings = _settings_from_query(query)
+                    result = analyze_snapshot(snapshot, settings)
+                else:
+                    result = records(snapshot['data']) if parsed.path == '/records' else summarize(snapshot['data'])
                 self.send_json(200, {'revision': snapshot['revision'], 'digest': snapshot['digest'], 'result': result})
             except LookupError as error:
                 self.send_json(404, {'error': str(error)})
@@ -39,19 +68,34 @@ def make_server(repository, host='127.0.0.1', port=0):
                 self.send_json(400, {'error': str(error)})
 
         def do_POST(self):
-            if urlsplit(self.path).path != '/imports':
+            parsed = urlsplit(self.path)
+            if parsed.path not in ('/imports', '/analyses'):
                 return self.send_json(404, {'error': '接口不存在'})
             try:
                 length = int(self.headers.get('Content-Length', '0'))
-                if not 0 < length <= 4_000_000:
+                if not 0 < length <= 8_000_000:
                     raise ValueError('请求正文大小不合法')
                 payload = json.loads(self.rfile.read(length))
                 if not isinstance(payload, dict):
                     raise ValueError('请求必须是对象')
-                result = repository.import_data(payload['data'], payload['request_key'])
-                self.send_json(200 if result['replayed'] else 201, result)
+                if parsed.path == '/imports':
+                    result = repository.import_data(payload['data'], payload['request_key'])
+                    self.send_json(200 if result['replayed'] else 201, result)
+                    return
+                query = parse_qs(parsed.query)
+                revision = int(query['revision'][0]) if 'revision' in query else None
+                snapshot = repository.get(revision)
+                settings = payload.get('settings')
+                analysis = analyze_snapshot(snapshot, settings)
+                receipt = repository.save_analysis(analysis, payload['request_key'],
+                                                   analysis['settings'])
+                self.send_json(200 if receipt['replayed'] else 201,
+                               {**receipt, 'data_digest': snapshot['digest'],
+                                'analysis_digest': analysis['analysis_digest']})
             except Conflict as error:
                 self.send_json(409, {'error': str(error)})
+            except LookupError as error:
+                self.send_json(404, {'error': str(error)})
             except (ValueError, KeyError, TypeError, UnicodeError) as error:
                 self.send_json(400, {'error': str(error)})
 
